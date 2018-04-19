@@ -38,12 +38,25 @@
 (autoload 'scss-mode "scss-mode")
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 
+;; haskell-mode
+(add-to-list 'load-path "~/.emacs-d/elpa/haskell-mode-20180406.2222/")
+(add-to-list 'Info-default-directory-list "~/.emacs-d/elpa/haskell-mode-20180406.2222")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Default Configurations ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Opens emacs always maximized
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+
+;; Open frame maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; Use spaces instead of tabs
 (setq-default indent-tabs-mode nil)
 
 ;; Default tab (spaces) size
 (setq tab-width 2)
+
+;; Replace text when on "selection mode"
+(delete-selection-mode 1)
